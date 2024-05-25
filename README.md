@@ -1,6 +1,9 @@
 ## TUIC-PROTOCOL-GO
 
 本协议已经有前人栽树，请参考[TUIC Protocol](https://github.com/EAimTY/tuic/blob/tuic-5.0.0/SPEC.md)，作为学习HTTP3，用Golang实现了一遍，仅供学习
+<br>
+Golang客户端：[tuic-client](https://github.com/ZYKJShadow/tuic-client)<br>
+Golang服务器：[tuic-server](https://github.com/ZYKJShadow/tuic-server)
 
 ## 协议
 TUIC 协议依赖于一个可以多路复用的 TLS 加密流。所有的中继任务都通过 Command 中的 Header 来协商。
@@ -103,7 +106,7 @@ TUIC 协议依赖于一个可以多路复用的 TLS 加密流。所有的中继�
 - 客户端打开一个双向流(bi_stream)，发送`Connect`命令
 - 客户端在`Connect`命令发送成功之后，立刻对双向流和本地连接建立双向传输
 - 服务器接收到`Connect`命令后，打开一个到目标地址的TCP流，建立成功后，服务器立即在TCP流和双向流之间传输数据、
-- 有一方数据传输完毕关闭，双方都必须释放所有流和连接
+- 有一方数据传输完毕，双方都关闭并释放流和连接
 
 ### 3、UDP中继
 - `ASSOC_ID`由客户端生成
