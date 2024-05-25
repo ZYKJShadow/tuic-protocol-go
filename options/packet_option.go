@@ -2,8 +2,8 @@ package options
 
 import (
 	"errors"
-	"tuic-protocol-go/address"
-	"tuic-protocol-go/utils"
+	"github.com/ZYKJShadow/tuic-protocol-go/address"
+	"github.com/ZYKJShadow/tuic-protocol-go/utils"
 )
 
 type PacketOptions struct {

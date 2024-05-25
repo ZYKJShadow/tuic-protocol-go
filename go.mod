@@ -1,4 +1,4 @@
-module tuic-protocol-go
+module github.com/ZYKJShadow/tuic-protocol-go
 
 go 1.21.7
 

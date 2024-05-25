@@ -2,7 +2,7 @@ package options
 
 import (
 	"bytes"
-	"tuic-protocol-go/address"
+	"github.com/ZYKJShadow/tuic-protocol-go/address"
 )
 
 type ConnectOptions struct {

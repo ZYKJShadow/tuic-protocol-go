@@ -6,9 +6,9 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
+	"github.com/ZYKJShadow/tuic-protocol-go/utils"
 	"io"
 	"net"
-	"tuic-protocol-go/utils"
 )
 
 const (

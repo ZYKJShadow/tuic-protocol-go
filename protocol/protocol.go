@@ -2,10 +2,10 @@ package protocol
 
 import (
 	"errors"
+	"github.com/ZYKJShadow/tuic-protocol-go/address"
+	"github.com/ZYKJShadow/tuic-protocol-go/options"
 	"github.com/sirupsen/logrus"
 	"io"
-	"tuic-protocol-go/address"
-	"tuic-protocol-go/options"
 )
 
 const VersionMajor = 0x05
