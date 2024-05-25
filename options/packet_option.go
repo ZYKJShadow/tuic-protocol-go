@@ -2,8 +2,8 @@ package options
 
 import (
 	"errors"
-	"tuic-go/tuic/address"
-	"tuic-go/tuic/utils"
+	"tuic-protocol-go/address"
+	"tuic-protocol-go/utils"
 )
 
 type PacketOptions struct {

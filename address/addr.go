@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"io"
 	"net"
-	"tuic-go/tuic/utils"
+	"tuic-protocol-go/utils"
 )
 
 const (

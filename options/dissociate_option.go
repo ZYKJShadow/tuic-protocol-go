@@ -1,7 +1,7 @@
 package options
 
 import (
-	"tuic-go/tuic/utils"
+	"tuic-protocol-go/utils"
 )
 
 type DissociateOptions struct {

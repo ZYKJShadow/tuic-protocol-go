@@ -1,4 +1,4 @@
-module tuic-go
+module tuic-protocol-go
 
 go 1.21.7
 

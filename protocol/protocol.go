@@ -4,8 +4,8 @@ import (
 	"errors"
 	"github.com/sirupsen/logrus"
 	"io"
-	"tuic-go/tuic/address"
-	"tuic-go/tuic/options"
+	"tuic-protocol-go/address"
+	"tuic-protocol-go/options"
 )
 
 const VersionMajor = 0x05

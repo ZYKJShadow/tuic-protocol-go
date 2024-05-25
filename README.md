@@ -1,4 +1,4 @@
-## TUIC-GO
+## TUIC-PROTOCOL-GO
 
 本协议已经有前人栽树，请参考[TUIC Protocol](https://github.com/EAimTY/tuic/blob/tuic-5.0.0/SPEC.md)，作为学习HTTP3，用Golang实现了一遍，仅供娱乐。
 
