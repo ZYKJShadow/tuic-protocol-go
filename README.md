@@ -1,7 +1,8 @@
 ## TUIC-PROTOCOL-GO
 
-本协议已经有前人栽树，请参考[TUIC Protocol](https://github.com/EAimTY/tuic/blob/tuic-5.0.0/SPEC.md)，作为学习HTTP3，用Golang实现了一遍，仅供学习
+本协议已经有前人栽树，请参考[TUIC Protocol](https://github.com/EAimTY/tuic/blob/tuic-5.0.0/SPEC.md)
 <br>
+本项目是以学习为目的开发和开源，任何其他用途与作者无关<br>
 Golang客户端：[tuic-client](https://github.com/ZYKJShadow/tuic-client)<br>
 Golang服务器：[tuic-server](https://github.com/ZYKJShadow/tuic-server)
 
