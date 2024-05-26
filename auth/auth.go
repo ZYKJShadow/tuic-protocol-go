@@ -10,6 +10,14 @@ type Authenticated struct {
 
 var _ quic.TokenStore = (*Authenticated)(nil)
 
+func NewAuthenticated(store quic.TokenStore, gets, puts chan<- string) *Authenticated {
+	return &Authenticated{
+		store: store,
+		gets:  gets,
+		puts:  puts,
+	}
+}
+
 func (a *Authenticated) Pop(key string) (token *quic.ClientToken) {
 	a.gets <- key
 	return a.store.Pop(key)
