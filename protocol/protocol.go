@@ -4,6 +4,7 @@ import (
 	"errors"
 	"github.com/ZYKJShadow/tuic-protocol-go/address"
 	"github.com/ZYKJShadow/tuic-protocol-go/options"
+	"github.com/quic-go/quic-go"
 	"github.com/sirupsen/logrus"
 	"io"
 )
@@ -34,6 +35,12 @@ const (
 const (
 	UdpRelayModeQuic   = "quic"
 	UdpRelayModeNative = "native"
+)
+
+const (
+	NormalClosed   = quic.StreamErrorCode(0)
+	ClientCanceled = quic.StreamErrorCode(1)
+	ServerCanceled = quic.StreamErrorCode(2)
 )
 
 const DefaultConcurrentStreams int64 = 32
