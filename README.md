@@ -106,16 +106,15 @@ TUIC 协议依赖于一个可以多路复用的 TLS 加密流。所有的中继�
 ### 2、TCP中继
 - 客户端打开一个双向流(bi_stream)，发送`Connect`命令
 - 客户端在`Connect`命令发送成功之后，立刻对双向流和本地连接建立双向传输
-- 服务器接收到`Connect`命令后，打开一个到目标地址的TCP流，建立成功后，服务器立即在TCP流和双向流之间传输数据、
-- 有一方数据传输完毕，双方都关闭并释放流和连接
+- 服务器接收到`Connect`命令后，打开一个到目标地址的TCP流，建立成功后，服务器立即在TCP流和双向流之间传输数据
 
 ### 3、UDP中继
 - `ASSOC_ID`由客户端生成
 - 客户端可以通过QUIC 单向流(quic模式)或 QUIC datagram(native模式)发送`Packet`命令
-- TUIC 通过在客户端和服务器之间同步UDP`ASSOC_ID`来实现0-RTT
+- 通过在客户端和服务器之间同步UDP`ASSOC_ID`来实现0-RTT
 - 客户端和服务器为每个 QUIC 连接创建一个 UDP 会话表，将每个`ASSOC_ID`映射到一个UDP socket
 - 服务器为每一个`ASSOC_ID`分配一个UDP socket。服务器使用这个UDP socket发送客户端请求的 UDP 数据包，同时接收来自任何目的地的UDP数据包，并添加`Packet`命令头发送回客户端
-- 客户端可以通过 QUIC 单向流发送 Dissociate 命令来解除关联
+- 客户端可以通过 QUIC 单向流发送`Dissociate` 命令来解除关联
 
 ### 4、 心跳
 客户端定期通过Datagram的方式发送`Heartbeat`命令
