@@ -1,6 +1,9 @@
 package fragment
 
-import "sync"
+import (
+	"sort"
+	"sync"
+)
 
 type FBuffer struct {
 	fragments map[uint8][]byte
@@ -42,6 +45,8 @@ func (fc *FCache) AddFragment(assocID uint16, fragID uint8, total uint8, size ui
 	if !ok {
 		fb = NewFragmentBuffer(total, size)
 		fc.cache[assocID] = fb
+	} else {
+		fb.size += size
 	}
 
 	if fb.SetFragData(fragID, data).IsComplete() {
@@ -63,9 +68,20 @@ func (fb *FBuffer) IsComplete() bool {
 }
 
 func (fb *FBuffer) Assemble() []byte {
+	keys := make([]uint8, 0, len(fb.fragments))
+	for k := range fb.fragments {
+		keys = append(keys, k)
+	}
+
+	sort.Slice(keys, func(i, j int) bool {
+		return keys[i] < keys[j]
+	})
+
 	assembled := make([]byte, fb.size)
-	for i := uint8(0); i < fb.total; i++ {
-		copy(assembled[i*uint8(len(fb.fragments[i])):(i+1)*uint8(len(fb.fragments[i]))], fb.fragments[i])
+	pos := 0
+	for _, k := range keys {
+		copy(assembled[pos:], fb.fragments[k])
+		pos += len(fb.fragments[k])
 	}
 
 	return assembled

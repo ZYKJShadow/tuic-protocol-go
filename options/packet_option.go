@@ -54,10 +54,13 @@ func (p *PacketOptions) Len() uint32 {
 }
 
 func (p *PacketOptions) CalFragTotal(payload []byte, maxPktSize uint32) {
-	firstFragSize := maxPktSize - p.Len()
-	fragSizeAddrNone := maxPktSize - 8
-	i := uint32(len(payload))
-	if firstFragSize < i {
-		p.FragTotal = uint8(1 + (i-firstFragSize)/fragSizeAddrNone + 1)
+	dataLen := uint32(len(payload))
+	if dataLen < maxPktSize {
+		p.FragTotal = 1
+	} else {
+		p.FragTotal = uint8(dataLen / maxPktSize)
+		if dataLen%maxPktSize != 0 {
+			p.FragTotal++
+		}
 	}
 }
